@@ -445,6 +445,7 @@ App.main = function(callback, createUi)
 		{
 			var config = JSON.parse(decodeURIComponent(
 					window.location.hash.substring(2)));
+			console.log(config)
 			Editor.configure(config, true);
 			
 			if (config.open != null)
@@ -3804,6 +3805,7 @@ App.prototype.restoreLibraries = function()
 							
 							if (service == 'L')
 							{
+								console.log("service L")
 								if (isLocalStorage || mxClient.IS_CHROMEAPP)
 								{
 									// Make asynchronous for barrier to work
@@ -3813,6 +3815,7 @@ App.prototype.restoreLibraries = function()
 										{
 											var name = decodeURIComponent(id.substring(1));
 											
+											console.log("Enter try")
 											var xml = this.getLocalData(name, mxUtils.bind(this, function(xml)
 											{
 												if (name == '.scratchpad' && xml == null)
@@ -3822,6 +3825,7 @@ App.prototype.restoreLibraries = function()
 												
 												if (xml != null)
 												{
+													console.log("xml not mull")
 													onload(new StorageLibrary(this, xml, name));
 												}
 												else
@@ -3839,6 +3843,7 @@ App.prototype.restoreLibraries = function()
 							}
 							else if (service == 'U')
 							{
+								console.log("Service U")
 								var url = decodeURIComponent(id.substring(1));
 								
 								if (!this.isOffline())
@@ -3884,6 +3889,7 @@ App.prototype.restoreLibraries = function()
 							}
 							else
 							{
+								console.log("else")
 								var peer = null;
 								
 								if (service == 'G')
@@ -3959,6 +3965,8 @@ App.prototype.restoreLibraries = function()
 		
 		load(mxSettings.getCustomLibraries(), function()
 		{
+			console.log("clibs")
+			console.log(urlParams["clibs"])
 			load((urlParams['clibs'] || '').split(';'));
 		});
 	}
