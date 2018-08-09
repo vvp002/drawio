@@ -3752,6 +3752,8 @@ App.prototype.restoreLibraries = function()
 				{
 					if (libs != null)
 					{
+						console.log("libs not null")
+						console.log(libs)
 						for (var i = libs.length - 1; i >= 0; i--)
 						{
 							if (files[i] != null)
