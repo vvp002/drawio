@@ -6340,6 +6340,7 @@
 			
 			if (xml != null && xml.substring(0, 10) == '<mxlibrary')
 			{
+				console.log("Importing library")
 				this.loadLibrary(new LocalLibrary(this, xml, filename));
 			}
 			else
